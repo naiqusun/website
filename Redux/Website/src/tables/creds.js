@@ -1,17 +1,17 @@
 var AWS = require('aws-sdk');
 
 AWS.config.update({
-  accessKeyId: 'AKIAIJ2KAA7SG6FIKDNA',
-  secretAccessKey: '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',
+  accessKeyId: 'aaaa',
+  secretAccessKey: 'bbb',
   region: ‘us-west-1’
 });
 
 
 var s3 = new AWS.S3();
 
- s3.createBucket({Bucket: 'naiqu'}, function() {
+ s3.createBucket({Bucket: 'snsventures'}, function() {
 
-  var params = {Bucket: 'myBucket', Key: 'AKIAIJ2KAA7SG6FIKDNA', Body: 'Hello!'};
+  var params = {Bucket: 'snsventures', Key: 'AKIAIJ2KAA7SG6FIKDNA', Body: 'Hello!'};
 
   s3.putObject(params, function(err, data) {
 
