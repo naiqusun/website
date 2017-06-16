@@ -1,0 +1,46 @@
+
+ {"gyms":[
+         {
+             "name":"Equinox1",
+             "numberOfClasses":"Count of all classes tied to gym",
+             "numberOfReviews": "Countof all reviews tied to gym",
+             "zip":"94105 (though probably split by address)",
+             "classes": [{
+               "class":"array of classes linked to gym"
+               }]
+         },
+         {
+           "name":"Equinox2",
+           "numberOfClasses":"60",
+           "numberOfReviews": "120",
+           "zip":"94104",
+           "classes": {
+               "class1":"Basketball",
+               "class2":"Cardio",
+               "class3":"Weights"
+             }
+         },
+         {
+           "name":"Equinox3",
+           "numberOfClasses":"65",
+           "numberOfReviews": "25",
+           "zip":"94145",
+           "classes": {
+               "class1":"Basketball",
+               "class2":"Cardio",
+               "class3":"Weights"
+             }
+         },
+         {
+           "name":"Equinox4",
+           "numberOfClasses":"0",
+           "numberOfReviews": "22",
+           "zip":"99999",
+           "classes": {
+               "class1":"Basketball",
+               "class2":"Cardio",
+               "class3":"Weights"
+             }
+         }
+
+ ]}

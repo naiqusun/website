@@ -1,0 +1,256 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+   <!--Import Google Icon Font-->
+   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+   <!--Import materialize.css-->
+   <link type="text/css" rel="stylesheet" href="style/css/materialize.min.css"  media="screen,projection"/>
+   <!--Let browser know website is optimized for mobile-->
+   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+
+<body>
+
+  <div class="navbar-fixed">
+    <nav class="nav-border blue-grey darken-4">
+      <div class="nav-wrapper">
+          <div class="row">
+
+            <div class="col s2">
+              <a href="index.html" class="left brand-logo">Naiqu the Eng</a>
+            </div>
+
+            <div class="col s6 hide-on-med-and-down push-s1 box">
+
+                <div class="input-field">
+                  <input id="search" type="search" class='search' required>
+                  <label class="label-icon" for="search"><i class="material-icons">search</i>
+                  </label>
+                  <i class="material-icons closed">close</i>
+                </div>
+
+            </div>
+            <div class="col s4 hide-on-med-and-down">
+              <ul class="right">
+                <li><a href="badges.html">Log In</a></li>
+                <li><a class="waves-effect waves-light btn href="javascript:void(0)" onclick="document.getElementById('subscribe').style.display='block'"">Sign Up</a></li>
+              </ul>
+            </div>
+
+          </div>
+      </div>
+    </nav>
+  </div>
+
+  <div class="row">
+    <div class="col s3">
+      <div class="card-panel teal">
+        <span class="white-text">Image
+        </span>
+      </div>
+    </div>
+    <div class="col s3">
+      <div class="card-panel teal">
+        <span class="white-text">I am a very simple card. I am good at containing small bits of information.
+        I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+        </span>
+      </div>
+    </div>
+
+    <div class="col s3">
+      <div class="card-panel teal">
+        <span class="white-text">I am a very simple card. I am good at containing small bits of information.
+        I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+        </span>
+      </div>
+    </div>
+
+    <div class="col s3">
+      <div class="card-panel teal">
+        <span class="white-text">I am a very simple card. I am good at containing small bits of information.
+        I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+        </span>
+      </div>
+    </div>
+
+  </div>
+
+
+  <div class="section center">
+   <ul class="pagination">
+     <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+     <li class="active"><a href="#!">today</a></li>
+     <li class="waves-effect"><a href="#!">date</a></li>
+     <li class="waves-effect"><a href="#!">date</a></li>
+     <li class="waves-effect"><a href="#!">date</a></li>
+     <li class="waves-effect"><a href="#!">date</a></li>
+     <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+   </ul>
+ </div>
+
+<!-- Main body -->
+
+<div class="row">
+
+  <!-- This is for Reviews -->
+
+  <div class="col s6" style="overflow-y: scroll;max-height:1000px"><h4 class="center">Classes and Activities</h4>
+    <span id="placeholderClassSearchResult"></span>
+  </div>
+
+  <!-- This is for Reviews of a particular class -->
+
+  <div class="col s6" style="overflow-y: scroll;max-height:1000px"><h4 class="center">Reviews for Selected Class</h4>
+    <a class="btn-floating btn-large red right pulse"><i class="large material-icons">add</i></a>
+    <span id="placeholderClassReviewSearchResult"></span>
+  </div>
+
+</div>
+
+<!-- Modal Structure -->
+<div id="addReview" class="modal">
+  <div class="modal-content">
+    <h4>Modal Header</h4>
+    <p>A bunch of text</p>
+  </div>
+  <div class="modal-footer">
+    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+  </div>
+</div>
+
+</body>
+
+<footer class="page-footer  blue-grey darken-4">
+  <div class="container">
+    <div class="row">
+      <div class="col l6 s12">
+        <h5 class="white-text">Footer Content</h5>
+          <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+      </div>
+      <div class="col l4 offset-l2 s12">
+        <h5 class="white-text">Links</h5>
+          <ul>
+            <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+            <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+            <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+            <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+          </ul>
+      </div>
+    </div>
+  </div>
+    <div class="footer-copyright">
+      <div class="container"> © 2014 Copyright Text
+         <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+      </div>
+    </div>
+</footer>
+
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="style/js/materialize.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.js"></script>
+
+<script>
+      /*create search results */
+
+$.getJSON('classdata.json', function(classResults) {
+
+  var classResultsStart = document.getElementById("placeholderClassSearchResult");
+
+  for (i = 0; i < classResults.classes.length; i++) {
+
+    var classResultsContainer = document.createElement("div");
+    var classResultsFront = document.createElement("div");
+    var classResultsBack = document.createElement("div");
+
+    classResultsContainer.classList.add('card');
+    classResultsContainer.classList.add('small');
+    classResultsFront.classList.add('card-content');
+    classResultsBack.classList.add("card-reveal");
+
+    classResultsStart.appendChild(classResultsContainer);
+    classResultsContainer.appendChild(classResultsFront);
+    classResultsContainer.appendChild(classResultsBack);
+
+    classResultsFront.innerHTML = '<span class="card-title activator grey-text text-darken-4">'+ classResults.classes[i].name + '<i class="material-icons right">more_vert</i></span>'
+    + '<p>' + classResults.classes[i].avgFitness + '</p>'
+    + '<p>' + classResults.classes[i].avgRating + '</p>'
+    + '<p>' + classResults.classes[i].gym + '</p>'
+    + '<p>' + classResults.classes[i].location + '</p>';
+    classResultsBack.innerHTML = '<span class="card-title grey-text text-darken-4">'+ 'More Info' + '<i class="material-icons right">close</i></span>'
+    + '<p>' + classResults.classes[i].type + '</p>'
+    + '<p>' + classResults.classes[i].description + '</p>'
+    + '<p>' + classResults.classes[i].dateOffered + '</p>'
+    + '<p>' + classResults.classes[i].instructor + '</p>'
+    + '<p>' + classResults.classes[i].duration + '</p>';
+
+  }
+});
+
+$.getJSON('classdata.json', function(classdatajson) {
+
+  var classReviewResultsStart = document.getElementById("placeholderClassReviewSearchResult");
+
+  for (i = 0; i < classdatajson.classes[0].reviews.length; i++) {
+
+    var classReviewResultsContainer = document.createElement("div");
+    var classReviewResultsContent = document.createElement("div");
+
+    classReviewResultsContainer.classList.add("card");
+    classReviewResultsContent.classList.add("card-content");
+    classReviewResultsContent.classList.add("black-text");
+
+    classReviewResultsContent.innerHTML = '<span class="card-title">' + classdatajson.classes[0].reviews[i].reviewTitle + '<span style="float:right">' + classdatajson.classes[0].reviews[i].rating + '</span></span>'
+    + '<p>' + classdatajson.classes[0].reviews[i].user
+    + '<span style="float:right">' + classdatajson.classes[0].reviews[i].dateSubmitted + '</span></p><br>'
+    + '<p>' + classdatajson.classes[0].reviews[i].reviewText + '</p>'
+    + '<br><p><i class=material-icons>thumb_up</i>     <i class=material-icons>thumb_down</i></p>';
+
+    classReviewResultsStart.appendChild(classReviewResultsContainer);
+    classReviewResultsContainer.appendChild(classReviewResultsContent);
+
+  }
+});
+
+$(document).ready(function(){
+     $('.carousel').carousel();
+   });
+</script>
+
+<script>
+/*  p;aceholder for class
+
+<div class="card small">
+  <div class="card-image waves-effect waves-block waves-light"></div>
+  <div class="card-content">
+    <span class="card-title activator grey-text text-darken-4">This is a particular class<i class="material-icons right">more_vert</i></span>
+  </div>
+  <div class="card-reveal">
+    <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+  <p>Description about particular class.</p>
+  </div>
+</div>
+
+placeholder for review
+
+<div class="card">
+  <div class="card-content black-text">
+    <span class="card-title">Review Title<span style="float:right">5 stars</span></span>
+    <p>username<span style="float:right">date submitted</span><p>
+    <br>
+    <p>I am a very simple card. I am good at containing small bits of information.
+    I am convenient because I require little markup to use effectively.</p>
+    <br>
+    <p><i class=material-icons>thumb_up</i>     <i class=material-icons>thumb_down</i></p>
+
+  </div>
+</div>
+
+
+
+
+*/
+</script>
+
+</html>

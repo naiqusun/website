@@ -1,0 +1,138 @@
+
+{"classes":[
+  {
+      "name":"Name of the class",
+      "type":"Category of class - cardio, weights, yoga etc.",
+      "description":"Description of the class",
+      "avgRating":"Average Rating of all reviews",
+      "instructor": "Name if available",
+      "duration": "Duration of the class",
+      "dateOffered": "this might be an array if multiple dates/times",
+      "avgFitness": "Average Rating of fitness level",
+      "gym":"Gym where it's hosted",
+      "location": "Gym name or Address or both",
+      "reviews": [
+        {
+          "user":"Username",
+          "dateSubmitted":"Date submitted",
+          "rating":"Class Rating",
+          "fitness": "Fitness",
+          "reviewTitle": "Review Title",
+          "reviewText": "User input"
+        },
+        {
+          "user":"Username",
+          "dateSubmitted":"Date submitted",
+          "rating":"Class Rating",
+          "fitness": "Fitness",
+          "reviewTitle": "Review Title",
+          "reviewText": "User input"
+        },
+        {
+          "user":"Username",
+          "dateSubmitted":"Date submitted",
+          "rating":"Class Rating",
+          "fitness": "Fitness",
+          "reviewTitle": "Review Title",
+          "reviewText": "User input"
+        },
+        {
+          "user":"Username",
+          "dateSubmitted":"Date submitted",
+          "rating":"Class Rating",
+          "fitness": "Fitness",
+          "reviewTitle": "Review Title",
+          "reviewText": "User input"
+        }]
+  },
+  {
+      "name":"Weights",
+      "type":"Category of class - cardio, weights, yoga etc.",
+      "avgRating":"Average Rating of all reviews",
+      "description":"Description of the class",
+      "instructor": "Name if available",
+      "duration": "Duration of the class",
+      "dateOffered": "this might be an array if multiple dates/times",
+      "avgFitness": "Average Rating of fitness level",
+      "gym":"Gym where it's hosted",
+      "location": "Gym name or Address or both",
+      "reviews": [
+        {
+          "user":"Username",
+          "dateSubmitted":"Date submitted",
+          "rating":"Class Rating",
+          "fitness": "Fitness",
+          "reviewTitle": "Review Title",
+          "reviewText": "User input"
+        },
+        {
+          "user":"Username",
+          "dateSubmitted":"Date submitted",
+          "rating":"Class Rating",
+          "fitness": "Fitness",
+          "reviewTitle": "Review Title",
+          "reviewText": "User input"
+        },
+        {
+          "user":"Username",
+          "dateSubmitted":"Date submitted",
+          "rating":"Class Rating",
+          "fitness": "Fitness",
+          "reviewTitle": "Review Title",
+          "reviewText": "User input"
+        },
+        {
+          "user":"Username",
+          "dateSubmitted":"Date submitted",
+          "rating":"Class Rating",
+          "fitness": "Fitness",
+          "reviewTitle": "Review Title",
+          "reviewText": "User input"
+        }]
+  },
+  {
+      "name":"Something Else",
+      "type":"Category of class - cardio, weights, yoga etc.",
+      "avgRating":"Average Rating of all reviews",
+      "description":"Description of the class",
+      "instructor": "Name if available",
+      "duration": "Duration of the class",
+      "dateOffered": "this might be an array if multiple dates/times",
+      "avgFitness": "Average Rating of fitness level",
+      "gym":"Gym where it's hosted",
+      "location": "Gym name or Address or both",
+      "reviews": [
+        {
+          "user":"Username",
+          "dateSubmitted":"Date submitted",
+          "rating":"Class Rating",
+          "fitness": "Fitness",
+          "reviewTitle": "Review Title",
+          "reviewText": "User input"
+        },
+        {
+          "user":"Username",
+          "dateSubmitted":"Date submitted",
+          "rating":"Class Rating",
+          "fitness": "Fitness",
+          "reviewTitle": "Review Title",
+          "reviewText": "User input"
+        },
+        {
+          "user":"Username",
+          "dateSubmitted":"Date submitted",
+          "rating":"Class Rating",
+          "fitness": "Fitness",
+          "reviewTitle": "Review Title",
+          "reviewText": "User input"
+        },
+        {
+          "user":"Username",
+          "dateSubmitted":"Date submitted",
+          "rating":"Class Rating",
+          "fitness": "Fitness",
+          "reviewTitle": "Review Title",
+          "reviewText": "User input"
+        }]
+  }
+]}

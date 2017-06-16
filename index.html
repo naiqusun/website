@@ -4,11 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-
+<link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
 
 <style>
-body,h1 {font-family: "Raleway", sans-serif}
+
+body,h1 {font-family: "Josefin Sans", sans-serif}
 body, html {height: 100%}
 .bgimg {
     background-image: url('https://s-media-cache-ak0.pinimg.com/originals/55/0e/de/550edeaff0f5c2752c3803c24735d982.jpg');
@@ -16,28 +16,135 @@ body, html {height: 100%}
     background-position: center;
     background-size: cover;
 }
+
 </style>
+
+<head>
+   <!--Import Google Icon Font-->
+   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+   <!--Import materialize.css-->
+   <link type="text/css" rel="stylesheet" href="style/css/materialize.min.css"  media="screen,projection"/>
+
+   <!--Let browser know website is optimized for mobile-->
+   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+
 
 <body>
 
-<div class="bgimg w3-display-container w3-animate-opacity w3-text-white">
+
+  <div class="navbar-fixed">
+    <nav class="nav-border blue-grey darken-4">
+      <div class="nav-wrapper">
+          <div class="row">
+            <div class="col s2">
+              <a href="index.html" class="left brand-logo">Naiqu the Eng</a>
+            </div>
+            <div class="col s10 hide-on-med-and-down">
+              <ul class="right">
+                <li><a href="#about">About</a></li>
+                <li><a href="badges.html">Log In</a></li>
+                <li><a class="waves-effect waves-light btn href="javascript:void(0)" onclick="document.getElementById('subscribe').style.display='block'"">Sign Up</a></li>
+              </ul>
+            </div>
+          </div>
+      </div>
+    </nav>
   </div>
+
+<div class="bgimg w3-display-container w3-animate-opacity w3-text-white" id="home">
   <div class="w3-display-middle">
-    <h1 class="w3-jumbo w3-animate-top" style="color:white">COMING SOON</h1>
+    <h1 class="w3-jumbo w3-animate-top" style="color:white">Coming Soon</h1>
     <hr class="w3-border-grey" style="margin:auto;width:40%;color">
     <p class="w3-large w3-center" style="color:white">For more info contact SNS</p>
+    <form action="/action_page.php" target="_blank">
+      <input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Search for your gym" required name="Name"></p>
+      <button class="w3-button w3-black" type="submit"><a href="results.html">Search</a></button></p>
+    </form>
   </div>
 </div>
-</body>
 
-<div class="w3-top">
-  <div class="w3-bar w3-white w3-card-2" id="myNavbar">
-    <a href="#home" class="w3-bar-item w3-button w3-wide">Naiqu is an ENG</a>
-    <div class="w3-right w3-hide-small">
-      <a href="#howitworks" class="w3-bar-item w3-button"><i class="fa fa-user"></i> How it works</a>
-      <a href="#about" class="w3-bar-item w3-button"><i class="fa fa-th"></i> About </a>
-      <a href="#login" class="w3-bar-item w3-button"><i class="fa fa-usd"></i> Log In </a>
-      <a href="#signup" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i> Sign Up</a>
+<div class="separator">
+<div class="row center" id="about">
+<h1> About the company </h1>
+<h5> Something something </h5>
+  <div class="col s4">
+    <h5>Top leadership</h5>
+    <p>Naiqu is an excellent engineer and visionary.</p>
+  </div>
+  <div class="col s4">
+    <h5>Top hustle</h5>
+    <p>If you're lucky, you get half Sundays off.</p>
+  </div>
+  <div class="col s4">
+    <h5>Perks</h5>
+    <p>$5,000 gym discount.</p>
+  </div>
+</div>
+</div>
+
+
+</div>
+
+<div class="w3-container w3-row w3-center w3-dark-grey w3-padding-64">
+  <div class="w3-quarter">
+    <span class="w3-xxlarge">10+</span>
+    <br>Gym chains
+  </div>
+  <div class="w3-quarter">
+    <span class="w3-xxlarge">1,000+</span>
+    <br>Gyms
+  </div>
+  <div class="w3-quarter">
+    <span class="w3-xxlarge">50,000+</span>
+    <br>Reviews
+  </div>
+  <div class="w3-quarter">
+    <span class="w3-xxlarge">Naiqu</span>
+    <br>is the CTO
+  </div>
+</div>
+
+
+<footer class="page-footer  blue-grey darken-4">
+  <div class="container">
+           <div class="row">
+             <div class="col l6 s12">
+               <h5 class="white-text">Footer Content</h5>
+               <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+             </div>
+             <div class="col l4 offset-l2 s12">
+               <h5 class="white-text">Links</h5>
+               <ul>
+                 <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+                 <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+                 <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+                 <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+               </ul>
+             </div>
+           </div>
+         </div>
+         <div class="footer-copyright">
+           <div class="container">
+           © 2014 Copyright Text
+           <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+           </div>
+         </div>
+       </footer>
+
+<div id="subscribe" class="w3-modal">
+  <div class="w3-modal-content w3-animate-zoom w3-padding-large">
+    <div class="w3-container w3-white w3-center">
+      <p onclick="document.getElementById('subscribe').style.display='none'" class="fa fa-remove w3-button w3-xlarge w3-right w3-transparent">x</p>
+      <h2 class="w3-wide">Sign up</h2>
+      <p>And join the fun</p>
+      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Username or email"></p>
+      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Password" required name="Name"></p>
+      <button type="button" class="w3-button w3-black w3-margin-bottom" onclick="document.getElementById('subscribe').style.display='none'">Log In</button>
     </div>
+  </div>
+</div>
+
+</body>
 
 </html>

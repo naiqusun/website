@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+
+  </head>
+
+  <body>
+
+
+
+<div>
+
+<input id="title" placeholder="title"></input>
+<input id="rating" placeholder="rating"></input>
+<input id="comment" placeholder="comment"></input>
+
+<button onclick="createItem()">done</button>
+
+<div id="startlist"></div>
+
+</div>
+
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.js"></script>
+
+<script>
+"use strict"
+var items = []
+
+function Item(title, rating, comment){
+  this.title = title
+  this.rating = rating
+  this.comment = comment
+}
+
+// Item(10)
+// title=10
+
+function createItem(){
+  var item = new Item(document.getElementById('title').value, document.getElementById('rating').value, document.getElementById('comment').value)
+  items.push(item);
+  console.log(items);
+
+  var start = ""
+
+  for (let i = 0; i < items.length; i++) {
+    start += `${items[i].title} <br>`
+    + items[i].rating + "<br>"
+    + items[i].comment + "<br><br>"
+  }
+
+  document.getElementById("startlist").innerHTML = start
+}
+
+//
+//    var e = "<p/>";
+//
+//    for (var y=0; y<array.length; y++)
+//    {
+//      e += "Element " + y + " = " + array[y] + "<br/>";
+//    }
+//    document.getElementById("Result").innerHTML = e;
+// }
+
+
+
+
+</script>
+
+
+
+
+
+
+  </body>
+</html>

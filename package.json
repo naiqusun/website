@@ -31,6 +31,7 @@
     "babel-preset-stage-1": "^6.1.18",
     "hapi": "^15.0.3",
     "lodash": "^3.10.1",
+    "mustache": "^2.3.0",
     "react": "^0.14.8",
     "react-button": "^1.2.1",
     "react-dom": "^0.14.8",

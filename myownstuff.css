@@ -1,0 +1,126 @@
+
+h1, h2, h3, h4 {
+  font-size: 10px;
+}
+
+body {
+  background-color: #EFF9F0;
+  margin: 0;
+  padding: 0;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+/* Nav Bar */
+.navContainer {
+  margin:0;
+  padding:0;
+  width:100%;
+  height: 100px;
+  position:fixed;
+  background-color: #4C5B5C;
+}
+
+.navbar ul {
+  list-style-type: none;
+  overflow: scroll;;
+  white-space: nowrap;
+}
+
+.navbar li {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 20px 16px;
+  text-decoration: none;
+  border-style: solid;
+}
+
+li a {
+
+}
+
+.navbar li:hover{
+  background-color: black;
+}
+
+/* Search Bar */
+
+.searchWrapper{
+  width: 100%;
+  float:right;
+  border-style: solid;
+}
+
+.search {
+  width: 100px;
+  float: left;
+}
+
+.searchButton{
+ width: 40px;
+ height: 36px;
+ border: 1px solid #00B4CC;
+ background: #00B4CC;
+ text-align: center;
+ color: #fff;
+ border-radius: 5px;
+ cursor: pointer;
+ font-size: 20px;
+}
+
+.searchTerm {
+  float: left;
+  padding: 5px;
+  color: green;
+}
+
+.searchTerm:focus {
+  color: red;
+}
+
+/* Search Results */
+table {
+    border-collapse: collapse;
+    width: 75%;
+    margin: auto;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+tr:hover {
+  background-color: blue;
+}
+
+.searchResultsContainer {
+  width: 100%;
+  height: 150px;
+  border-style: solid;
+}
+
+.searchResultsImageContainer {
+  width: 100px;
+  height: 100px;
+  background-color: black;
+  float:left;
+  color:white;
+  margin: 10px 10px;
+}
+
+.searchResultsDescriptionContainer{
+  width: 40%;
+  height: 100px;
+  float: left;
+  border-style: solid;
+  margin: 5px 5px;
+}
+
+.searchResultsRatingsContainer{
+  width: 40%%;
+  height: 100px;
+  float: right;
+  border-style: solid;
+  margin: 5px 5px;
+}
