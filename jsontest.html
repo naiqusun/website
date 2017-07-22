@@ -7,73 +7,104 @@
   </head>
 
   <body>
+  <ul id="beginGymList"></ul>
+
+  <br><br>
+
+
+<ul id="beginClassList"></ul>
+
+<ul id="beginClassReviewsList"></ul>
+
+<form name="searchForm">
+  <input name="searchTerm" placeholder="Search"></input>
+  <input type="button" onclick="searchGET(searchForm.searchTerm.value)" value="Submit"></input>
+</form>
+
+
+<div id="review1" onclick="lookUpGymClassGET(id)">Review 1</div>
+
+<br>
+<br>
 
 
 
-<div>
-
-<input id="title" placeholder="title"></input>
-<input id="rating" placeholder="rating"></input>
-<input id="comment" placeholder="comment"></input>
-
-<button onclick="createItem()">done</button>
-
-<div id="startlist"></div>
-
+<div id="gym1">
+  <div id="class1">
+    <div id="class-1-name">hi
+    </div>
+    <div id="class-1-key" style="display:none">
+    </div>
+    <div id="class-1-name">
+    </div>
+  </div>
+  <div id="class2">Class 2</div>
+  <div id="class3">Class 3</div>
 </div>
 
+<script type="text/javascript" src="/APICallScripts.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 
-<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.js"></script>
 
 <script>
 "use strict"
-var items = []
 
-function Item(title, rating, comment){
-  this.title = title
-  this.rating = rating
-  this.comment = comment
-}
-
-// Item(10)
-// title=10
-
-function createItem(){
-  var item = new Item(document.getElementById('title').value, document.getElementById('rating').value, document.getElementById('comment').value)
-  items.push(item);
-  console.log(items);
-
-  var start = ""
-
-  for (let i = 0; i < items.length; i++) {
-    start += `${items[i].title} <br>`
-    + items[i].rating + "<br>"
-    + items[i].comment + "<br><br>"
+function lookUpGymClassGETTest() {
+  let settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "https://snshealthie.herokuapp.com/api/v2/classes/",
+    "method": "GET",
+    "headers": {
+      "authorization": "Token ced12082a40905503ad2ad29367aeafb824ed2b8",
+    }
   }
+  console.log(settings.url)
+  $.ajax(settings).done(function (response) {
+    console.log(response)
 
-  document.getElementById("startlist").innerHTML = start
+  });
 }
 
-//
-//    var e = "<p/>";
-//
-//    for (var y=0; y<array.length; y++)
-//    {
-//      e += "Element " + y + " = " + array[y] + "<br/>";
-//    }
-//    document.getElementById("Result").innerHTML = e;
-// }
+
+let gymResults;
+let classResults;
+
+$.getJSON('dummydata.json', callbackWithData1);
+$.getJSON('classdata.json', callbackWithData2);
+
+function callbackWithData1(json) {
+  gymResults=json;
+
+}
+
+function callbackWithData2(json) {
+  classResults=json;
+  createList2()
+  renderClassReviews()
+}
 
 
+function createList2() {
+  let beginClassList = document.getElementById("beginClassList");
+  for (let i = 0; i < classResults.classes.length; i ++) {
+    let className = document.createElement("li")
+    className.id = "class"+i
+    className.innerHTML=classResults.classes[i].name
+    beginClassList.appendChild(className)
+  }
+}
 
+function renderClassReviews() {
+  let beginClassReviews = document.getElementById("beginClassReviewsList")
+  for (let i=0; i < classResults.classes[0].reviews.length; i ++) {
+    let classReview = document.createElement("li")
+    classReview.id = i
+    classReview.innerHTML=classResults.classes[0].reviews[i].reviewTitle
+    beginClassReviews.appendChild(classReview)
+  }
+}
 
 </script>
-
-
-
-
-
-
   </body>
 </html>

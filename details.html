@@ -22,15 +22,14 @@
             </div>
 
             <div class="col s6 hide-on-med-and-down push-s1 box">
-
                 <div class="input-field">
                   <input id="search" type="search" class='search' required>
                   <label class="label-icon" for="search"><i class="material-icons">search</i>
                   </label>
                   <i class="material-icons closed">close</i>
                 </div>
-
             </div>
+
             <div class="col s4 hide-on-med-and-down">
               <ul class="right">
                 <li><a href="badges.html">Log In</a></li>
@@ -45,37 +44,49 @@
 
   <div class="row">
     <div class="col s3">
-      <div class="card-panel teal">
-        <span class="white-text">Image
-        </span>
+      <div class="card-panel light-blue">
+        <span class="white-text">Gym Category 1</span>
       </div>
     </div>
-    <div class="col s3">
-      <div class="card-panel teal">
-        <span class="white-text">I am a very simple card. I am good at containing small bits of information.
-        I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
-        </span>
+      <div class="col s3">
+        <div class="card-panel light-blue">
+          <span class="white-text">Gym Category 2</span>
+        </div>
       </div>
-    </div>
-
-    <div class="col s3">
-      <div class="card-panel teal">
-        <span class="white-text">I am a very simple card. I am good at containing small bits of information.
-        I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
-        </span>
+      <div class="col s3">
+        <div class="card-panel light-blue">
+          <span class="white-text">Gym Category 3</span>
+        </div>
       </div>
-    </div>
-
-    <div class="col s3">
-      <div class="card-panel teal">
-        <span class="white-text">I am a very simple card. I am good at containing small bits of information.
-        I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
-        </span>
+      <div class="col s3">
+        <div class="card-panel light-blue">
+          <span class="white-text">Gym Category 4</span>
+        </div>
       </div>
-    </div>
-
   </div>
 
+  <div class="row">
+    <div class="col s3">
+      <div class="card-panel light-blue">
+        <span class="white-text">Gym Category 5</span>
+      </div>
+    </div>
+      <div class="col s3">
+        <div class="card-panel light-blue">
+          <span class="white-text">Gym Category 6</span>
+        </div>
+      </div>
+      <div class="col s3">
+        <div class="card-panel light-blue">
+          <span class="white-text">Gym Category 7</span>
+        </div>
+      </div>
+      <div class="col s3">
+        <div class="card-panel light-blue">
+          <span class="white-text">Gym Category 8</span>
+        </div>
+      </div>
+  </div>
 
   <div class="section center">
    <ul class="pagination">
@@ -96,28 +107,93 @@
   <!-- This is for Reviews -->
 
   <div class="col s6" style="overflow-y: scroll;max-height:1000px"><h4 class="center">Classes and Activities</h4>
+    <button class="btn-floating btn-large blue left pulse" data-target="postClassModal"><i class="large material-icons">add</i></button>
     <span id="placeholderClassSearchResult"></span>
   </div>
 
   <!-- This is for Reviews of a particular class -->
 
   <div class="col s6" style="overflow-y: scroll;max-height:1000px"><h4 class="center">Reviews for Selected Class</h4>
-    <a class="btn-floating btn-large red right pulse"><i class="large material-icons">add</i></a>
+    <button class="btn-floating btn-large red right pulse" data-target="postClassReviewModal"><i class="large material-icons">add</i></button>
     <span id="placeholderClassReviewSearchResult"></span>
   </div>
 
 </div>
 
 <!-- Modal Structure -->
-<div id="addReview" class="modal">
+
+<div id="postClassModal" class="modal">
   <div class="modal-content">
-    <h4>Modal Header</h4>
-    <p>A bunch of text</p>
+    <h4>Add a New Class</h4>
+    <div class="row">
+      <form id="postClass" class="col s12">
+        <div class="row">
+          <div class="input-field col s6">
+            <input name="owner" id="ownerId" type="text" placeholder="User ID" class="validate">
+            <label for="ownerId">User ID</label>
+          </div>
+          <div class="input-field col s6">
+            <input name="gym" id="gymId" type="text" placeholder="Gym ID" class="validate">
+            <label for="gymId">Gym ID</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input name="name" id="className" type="text" placeholder="Class Name" class="validate">
+            <label for="className">Class Name</label>
+          </div>
+        </div>
+      </form>
+    </div>
+      <div class="modal-footer">
+        <a class="modal-action modal-close waves-effect waves-green btn" onclick="createNewGymClassPOST()">Create Class</a>
+      </div>
+    </div>
+  </div>
+
+<div id="postClassReviewModal" class="modal">
+  <div class="modal-content">
+    <h4>Add a Review for Class</h4>
+    <div class="row">
+      <form id="postClassReview" class="col s12">
+        <div class="row">
+          <div class="input-field col s6">
+            <input name="owner" id="owner" type="text" placeholder="User ID" class="validate">
+            <label for="owner">User ID</label>
+          </div>
+          <div class="input-field col s6">
+            <input name="class_reviewed" id="className" type="text" placeholder="Class ID" class="validate">
+            <label for="className">Class ID</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s8">
+            <input name="title" id="reviewTitle" type="text" placeholder="Review Title" class="validate" data-length="200">
+            <label for="reviewTitle">Review Title</label>
+          </div>
+            <div class="input-field col s4">
+              <input name="rating" type="number" placeholder="Rating"></input>
+              <label for="classRating">Class Rating 1-5</label>
+            </div>
+          </div>
+        <div class="row">
+          <form class="col s12">
+            <div class="row">
+              <div class="input-field col s12">
+                <textarea name="review" id="reviewContent" class="materialize-textarea validate" placeholder="Your review here" data-length="1000"></textarea>
+                <label for="reviewContent">Review Content</label>
+              </div>
+            </div>
+          </form>
+        </div>
+      </form>
+    </div>
   </div>
   <div class="modal-footer">
-    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+    <a class="modal-action modal-close waves-effect waves-green btn" onclick="createNewGymClassReviewPOST()">Submit Review</a>
   </div>
 </div>
+
 
 </body>
 
@@ -140,7 +216,7 @@
     </div>
   </div>
     <div class="footer-copyright">
-      <div class="container"> © 2014 Copyright Text
+      <div class="container"> © 2017 SNS Ventures
          <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
       </div>
     </div>
@@ -149,9 +225,21 @@
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script type="text/javascript" src="style/js/materialize.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.js"></script>
+
 
 <script>
+
+// Modal
+
+$(document).ready(function(){
+  $('.modal').modal();
+});
+
+$(document).ready(function() {
+  $('input#reviewTitle,textarea#reviewContent').characterCounter();
+});
+
+
       /*create search results */
 
 $.getJSON('classdata.json', function(classResults) {
@@ -213,12 +301,55 @@ $.getJSON('classdata.json', function(classdatajson) {
   }
 });
 
-$(document).ready(function(){
-     $('.carousel').carousel();
-   });
-</script>
+function createNewGymClassReviewPOST(){
+  let form = new FormData(postClassReview);
+  for (var pair of form.entries()) {
+      console.log(pair[0]+ ', ' + pair[1]);
+  }
 
-<script>
+  let settings = {
+  "async": true,
+  "crossDomain": true,
+  "url": "https://snshealthie.herokuapp.com/api/v2/reviews/",
+  "method": "POST",
+  "headers": {
+    "authorization": "Token ced12082a40905503ad2ad29367aeafb824ed2b8",
+  },
+  "processData": false,
+  "contentType": false,
+  "mimeType": "multipart/form-data",
+  "data": form
+  }
+  $.ajax(settings).done(function (response) {
+    console.log(response);
+  })
+}
+
+
+function createNewGymClassPOST() {
+  let form = new FormData(postClass);
+  for (var pair of form.entries()) {
+      console.log(pair[0]+ ', ' + pair[1]);
+  }
+  let settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "https://snshealthie.herokuapp.com/api/v2/classes/",
+    "method": "POST",
+    "headers": {
+      "authorization": "Token ced12082a40905503ad2ad29367aeafb824ed2b8",
+      },
+    "processData": false,
+    "contentType": false,
+    "mimeType": "multipart/form-data",
+    "data": form
+  }
+  $.ajax(settings).done(function (response) {
+    console.log(response);
+  });
+}
+
+
 /*  p;aceholder for class
 
 <div class="card small">

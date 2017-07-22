@@ -1,6 +1,8 @@
 
 {"classes":[
   {
+      "id":"class ID",
+      "gymId": "gym ID",
       "name":"Name of the class",
       "type":"Category of class - cardio, weights, yoga etc.",
       "description":"Description of the class",
@@ -13,39 +15,44 @@
       "location": "Gym name or Address or both",
       "reviews": [
         {
+          "id":"user id",
           "user":"Username",
           "dateSubmitted":"Date submitted",
           "rating":"Class Rating",
           "fitness": "Fitness",
-          "reviewTitle": "Review Title",
+          "reviewTitle": "Review Title1",
           "reviewText": "User input"
         },
         {
+          "id":"user id",
           "user":"Username",
           "dateSubmitted":"Date submitted",
           "rating":"Class Rating",
           "fitness": "Fitness",
-          "reviewTitle": "Review Title",
+          "reviewTitle": "Review Title2",
           "reviewText": "User input"
         },
         {
+          "id":"user id",
           "user":"Username",
           "dateSubmitted":"Date submitted",
           "rating":"Class Rating",
           "fitness": "Fitness",
-          "reviewTitle": "Review Title",
+          "reviewTitle": "Review Title3",
           "reviewText": "User input"
         },
         {
+          "id":"user id",
           "user":"Username",
           "dateSubmitted":"Date submitted",
           "rating":"Class Rating",
           "fitness": "Fitness",
-          "reviewTitle": "Review Title",
+          "reviewTitle": "Review Title4",
           "reviewText": "User input"
         }]
   },
   {
+      "id":"class ID",
       "name":"Weights",
       "type":"Category of class - cardio, weights, yoga etc.",
       "avgRating":"Average Rating of all reviews",
@@ -58,39 +65,44 @@
       "location": "Gym name or Address or both",
       "reviews": [
         {
+          "id":"user id",
           "user":"Username",
           "dateSubmitted":"Date submitted",
           "rating":"Class Rating",
           "fitness": "Fitness",
-          "reviewTitle": "Review Title",
+          "reviewTitle": "Review Title1",
           "reviewText": "User input"
         },
         {
+          "id":"user id",
           "user":"Username",
           "dateSubmitted":"Date submitted",
           "rating":"Class Rating",
           "fitness": "Fitness",
-          "reviewTitle": "Review Title",
+          "reviewTitle": "Review Title2",
           "reviewText": "User input"
         },
         {
+          "id":"user id",
           "user":"Username",
           "dateSubmitted":"Date submitted",
           "rating":"Class Rating",
           "fitness": "Fitness",
-          "reviewTitle": "Review Title",
+          "reviewTitle": "Review Title3",
           "reviewText": "User input"
         },
         {
+          "id":"user id",
           "user":"Username",
           "dateSubmitted":"Date submitted",
           "rating":"Class Rating",
           "fitness": "Fitness",
-          "reviewTitle": "Review Title",
+          "reviewTitle": "Review Title4",
           "reviewText": "User input"
         }]
   },
   {
+      "id":"class ID",
       "name":"Something Else",
       "type":"Category of class - cardio, weights, yoga etc.",
       "avgRating":"Average Rating of all reviews",
@@ -103,6 +115,7 @@
       "location": "Gym name or Address or both",
       "reviews": [
         {
+          "id":"user id",
           "user":"Username",
           "dateSubmitted":"Date submitted",
           "rating":"Class Rating",
@@ -111,6 +124,7 @@
           "reviewText": "User input"
         },
         {
+          "id":"user id",
           "user":"Username",
           "dateSubmitted":"Date submitted",
           "rating":"Class Rating",
@@ -119,6 +133,7 @@
           "reviewText": "User input"
         },
         {
+          "id":"user id",
           "user":"Username",
           "dateSubmitted":"Date submitted",
           "rating":"Class Rating",
@@ -127,6 +142,7 @@
           "reviewText": "User input"
         },
         {
+          "id":"user id",
           "user":"Username",
           "dateSubmitted":"Date submitted",
           "rating":"Class Rating",
