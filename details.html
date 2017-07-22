@@ -196,10 +196,9 @@
       <div class="col l4 offset-l2 s12">
         <h5 class="white-text">Links</h5>
           <ul>
-            <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-            <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-            <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-            <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+            <li><a class="grey-text text-lighten-3" href="#!">Feedback</a></li>
+            <li><a class="grey-text text-lighten-3" href="#!">Careers</a></li>
+            <li><a class="grey-text text-lighten-3" href="#!">Privacy Policy</a></li>
           </ul>
       </div>
     </div>
@@ -214,7 +213,7 @@
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script type="text/javascript" src="style/js/materialize.min.js"></script>
-
+<script type="text/javascript" src="/APICallScripts.js"></script>
 
 <script>
 
@@ -229,41 +228,9 @@ $(document).ready(function() {
 });
 
 
-      /*create search results */
+/*create search results */
 
-$.getJSON('classdata.json', function(classResults) {
-
-  var classResultsStart = document.getElementById("placeholderClassSearchResult");
-
-  for (i = 0; i < classResults.classes.length; i++) {
-
-    var classResultsContainer = document.createElement("div");
-    var classResultsFront = document.createElement("div");
-    var classResultsBack = document.createElement("div");
-
-    classResultsContainer.classList.add('card');
-    classResultsContainer.classList.add('small');
-    classResultsFront.classList.add('card-content');
-    classResultsBack.classList.add("card-reveal");
-
-    classResultsStart.appendChild(classResultsContainer);
-    classResultsContainer.appendChild(classResultsFront);
-    classResultsContainer.appendChild(classResultsBack);
-
-    classResultsFront.innerHTML = '<span class="card-title activator grey-text text-darken-4">'+ classResults.classes[i].name + '<i class="material-icons right">more_vert</i></span>'
-    + '<p>' + classResults.classes[i].avgFitness + '</p>'
-    + '<p>' + classResults.classes[i].avgRating + '</p>'
-    + '<p>' + classResults.classes[i].gym + '</p>'
-    + '<p>' + classResults.classes[i].location + '</p>';
-    classResultsBack.innerHTML = '<span class="card-title grey-text text-darken-4">'+ 'More Info' + '<i class="material-icons right">close</i></span>'
-    + '<p>' + classResults.classes[i].type + '</p>'
-    + '<p>' + classResults.classes[i].description + '</p>'
-    + '<p>' + classResults.classes[i].dateOffered + '</p>'
-    + '<p>' + classResults.classes[i].instructor + '</p>'
-    + '<p>' + classResults.classes[i].duration + '</p>';
-
-  }
-});
+lookUpAllGymClassGET();
 
 $.getJSON('classdata.json', function(classdatajson) {
 
@@ -290,53 +257,7 @@ $.getJSON('classdata.json', function(classdatajson) {
   }
 });
 
-function createNewGymClassReviewPOST(){
-  let form = new FormData(postClassReview);
-  for (var pair of form.entries()) {
-      console.log(pair[0]+ ', ' + pair[1]);
-  }
 
-  let settings = {
-  "async": true,
-  "crossDomain": true,
-  "url": "https://snshealthie.herokuapp.com/api/v2/reviews/",
-  "method": "POST",
-  "headers": {
-    "authorization": "Token ced12082a40905503ad2ad29367aeafb824ed2b8",
-  },
-  "processData": false,
-  "contentType": false,
-  "mimeType": "multipart/form-data",
-  "data": form
-  }
-  $.ajax(settings).done(function (response) {
-    console.log(response);
-  })
-}
-
-
-function createNewGymClassPOST() {
-  let form = new FormData(postClass);
-  for (var pair of form.entries()) {
-      console.log(pair[0]+ ', ' + pair[1]);
-  }
-  let settings = {
-    "async": true,
-    "crossDomain": true,
-    "url": "https://snshealthie.herokuapp.com/api/v2/classes/",
-    "method": "POST",
-    "headers": {
-      "authorization": "Token ced12082a40905503ad2ad29367aeafb824ed2b8",
-      },
-    "processData": false,
-    "contentType": false,
-    "mimeType": "multipart/form-data",
-    "data": form
-  }
-  $.ajax(settings).done(function (response) {
-    console.log(response);
-  });
-}
 
 
 /*  p;aceholder for class
