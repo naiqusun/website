@@ -2,9 +2,7 @@
 <html>
 
 <head>
-   <!--Import Google Icon Font-->
    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-   <!--Import materialize.css-->
    <link type="text/css" rel="stylesheet" href="style/css/materialize.min.css"  media="screen,projection"/>
    <!--Let browser know website is optimized for mobile-->
    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -42,51 +40,28 @@
     </nav>
   </div>
 
+<br>
   <div class="row">
-    <div class="col s3">
-      <div class="card-panel light-blue">
-        <span class="white-text">Gym Category 1</span>
-      </div>
+    <div class="col s2">
+      <a class="waves-effect waves-light btn-large" onclick="changeGymClassTitleHeader(document.getElementById('gymcategory1').innerHTML)"><i class="material-icons left">cloud</i><span id="gymcategory1">Category 1</span></a>
     </div>
-      <div class="col s3">
-        <div class="card-panel light-blue">
-          <span class="white-text">Gym Category 2</span>
-        </div>
+      <div class="col s2">
+        <a class="waves-effect waves-light btn-large" onclick="changeGymClassTitleHeader(document.getElementById('gymcategory2').innerHTML)"><i class="material-icons left">cloud</i><span id="gymcategory2">Category 2</span></a>
       </div>
-      <div class="col s3">
-        <div class="card-panel light-blue">
-          <span class="white-text">Gym Category 3</span>
-        </div>
+      <div class="col s2">
+        <a class="waves-effect waves-light btn-large" onclick="changeGymClassTitleHeader(document.getElementById('gymcategory3').innerHTML)"><i class="material-icons left">cloud</i><span id="gymcategory3">Category 3</span></a>
       </div>
-      <div class="col s3">
-        <div class="card-panel light-blue">
-          <span class="white-text">Gym Category 4</span>
-        </div>
+      <div class="col s2">
+        <a class="waves-effect waves-light btn-large" onclick="changeGymClassTitleHeader(document.getElementById('gymcategory4').innerHTML)"><i class="material-icons left">cloud</i><span id="gymcategory4">Category 4</span></a>
+      </div>
+      <div class="col s2">
+        <a class="waves-effect waves-light btn-large" onclick="changeGymClassTitleHeader(document.getElementById('gymcategory5').innerHTML)"><i class="material-icons left">cloud</i><span id="gymcategory5">Category 5</span></a>
+      </div>
+      <div class="col s2">
+        <a class="waves-effect waves-light btn-large" onclick="changeGymClassTitleHeader(document.getElementById('gymcategory6').innerHTML)"><i class="material-icons left">cloud</i><span id="gymcategory6">Category 6</span></a>
       </div>
   </div>
 
-  <div class="row">
-    <div class="col s3">
-      <div class="card-panel light-blue">
-        <span class="white-text">Gym Category 5</span>
-      </div>
-    </div>
-      <div class="col s3">
-        <div class="card-panel light-blue">
-          <span class="white-text">Gym Category 6</span>
-        </div>
-      </div>
-      <div class="col s3">
-        <div class="card-panel light-blue">
-          <span class="white-text">Gym Category 7</span>
-        </div>
-      </div>
-      <div class="col s3">
-        <div class="card-panel light-blue">
-          <span class="white-text">Gym Category 8</span>
-        </div>
-      </div>
-  </div>
 
 
 <!-- Main body -->
@@ -95,16 +70,22 @@
 
   <!-- This is for Reviews -->
 
-  <div class="col s6" style="overflow-y: scroll;max-height:1000px"><h4 class="center">Classes and Activities</h4>
-    <button class="btn-floating btn-large blue left pulse" data-target="postClassModal"><i class="large material-icons">add</i></button>
-    <span id="placeholderClassSearchResult"></span>
+  <div class="col s6">
+    <h4 class="center"><span id="classlistresults">Classes</span>
+    <button class="btn-floating btn-large blue left pulse" data-target="postClassModal"><i class="large material-icons">add</i></button></h4>
+    <div style="overflow-y: scroll;max-height:1000px">
+      <span id="placeholderClassSearchResult"></span>
+    </div>
   </div>
 
   <!-- This is for Reviews of a particular class -->
 
-  <div class="col s6" style="overflow-y: scroll;max-height:1000px"><h4 class="center">Reviews for Selected Class</h4>
-    <button class="btn-floating btn-large red right pulse" data-target="postClassReviewModal"><i class="large material-icons">add</i></button>
-    <span id="placeholderClassReviewSearchResult"></span>
+  <div class="col s6">
+    <h4 class="center"><span id="reviewlistresults">Reviews</span>
+    <button class="btn-floating btn-large red right pulse" data-target="postClassReviewModal"><i class="large material-icons">add</i></button></h4>
+    <div style="overflow-y: scroll;max-height:1000px">
+      <span id="placeholderClassReviewSearchResult"></span>
+    </div>
   </div>
 
 </div>
@@ -183,7 +164,6 @@
   </div>
 </div>
 
-
 </body>
 
 <footer class="page-footer  blue-grey darken-4">
@@ -213,7 +193,8 @@
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script type="text/javascript" src="style/js/materialize.min.js"></script>
-<script type="text/javascript" src="/APICallScripts.js"></script>
+<script type="text/javascript" src="/APIGetCallScripts.js"></script>
+<script type="text/javascript" src="/APIPostCallScripts.js"></script>
 
 <script>
 
@@ -229,35 +210,7 @@ $(document).ready(function() {
 
 
 /*create search results */
-
-lookUpAllGymClassGET();
-
-$.getJSON('classdata.json', function(classdatajson) {
-
-  var classReviewResultsStart = document.getElementById("placeholderClassReviewSearchResult");
-
-  for (i = 0; i < classdatajson.classes[0].reviews.length; i++) {
-
-    var classReviewResultsContainer = document.createElement("div");
-    var classReviewResultsContent = document.createElement("div");
-
-    classReviewResultsContainer.classList.add("card");
-    classReviewResultsContent.classList.add("card-content");
-    classReviewResultsContent.classList.add("black-text");
-
-    classReviewResultsContent.innerHTML = '<span class="card-title">' + classdatajson.classes[0].reviews[i].reviewTitle + '<span style="float:right">' + classdatajson.classes[0].reviews[i].rating + '</span></span>'
-    + '<p>' + classdatajson.classes[0].reviews[i].user
-    + '<span style="float:right">' + classdatajson.classes[0].reviews[i].dateSubmitted + '</span></p><br>'
-    + '<p>' + classdatajson.classes[0].reviews[i].reviewText + '</p>'
-    + '<br><p><i class=material-icons>thumb_up</i>     <i class=material-icons>thumb_down</i></p>';
-
-    classReviewResultsStart.appendChild(classReviewResultsContainer);
-    classReviewResultsContainer.appendChild(classReviewResultsContent);
-
-  }
-});
-
-
+lookUpAllGymClassGET()
 
 
 /*  p;aceholder for class
