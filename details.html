@@ -41,25 +41,11 @@
   </div>
 
 <br>
+
+<!-- Categories -->
+
   <div class="row">
-    <div class="col s2">
-      <a class="waves-effect waves-light btn-large" onclick="changeGymClassTitleHeader(document.getElementById('gymcategory1').innerHTML)"><i class="material-icons left">cloud</i><span id="gymcategory1">Category 1</span></a>
-    </div>
-      <div class="col s2">
-        <a class="waves-effect waves-light btn-large" onclick="changeGymClassTitleHeader(document.getElementById('gymcategory2').innerHTML)"><i class="material-icons left">cloud</i><span id="gymcategory2">Category 2</span></a>
-      </div>
-      <div class="col s2">
-        <a class="waves-effect waves-light btn-large" onclick="changeGymClassTitleHeader(document.getElementById('gymcategory3').innerHTML)"><i class="material-icons left">cloud</i><span id="gymcategory3">Category 3</span></a>
-      </div>
-      <div class="col s2">
-        <a class="waves-effect waves-light btn-large" onclick="changeGymClassTitleHeader(document.getElementById('gymcategory4').innerHTML)"><i class="material-icons left">cloud</i><span id="gymcategory4">Category 4</span></a>
-      </div>
-      <div class="col s2">
-        <a class="waves-effect waves-light btn-large" onclick="changeGymClassTitleHeader(document.getElementById('gymcategory5').innerHTML)"><i class="material-icons left">cloud</i><span id="gymcategory5">Category 5</span></a>
-      </div>
-      <div class="col s2">
-        <a class="waves-effect waves-light btn-large" onclick="changeGymClassTitleHeader(document.getElementById('gymcategory6').innerHTML)"><i class="material-icons left">cloud</i><span id="gymcategory6">Category 6</span></a>
-      </div>
+    <span id="placeholdergymclasscategorieslist"></span>
   </div>
 
 
@@ -195,6 +181,7 @@
 <script type="text/javascript" src="style/js/materialize.min.js"></script>
 <script type="text/javascript" src="/APIGetCallScripts.js"></script>
 <script type="text/javascript" src="/APIPostCallScripts.js"></script>
+<script type="text/javascript" src="/OtherScripts.js"></script>
 
 <script>
 
@@ -211,6 +198,8 @@ $(document).ready(function() {
 
 /*create search results */
 lookUpAllGymClassGET()
+createGymClassCategories(gymClassCategories)
+
 
 
 /*  p;aceholder for class

@@ -20,23 +20,6 @@ function lookUpGymClassGET(search) {
   });
 }
 
-//Call to return all reviews associated to given class ID
-function lookUpGymClassReviewGET(search) {
-  let settings = {
-    "async": true,
-    "crossDomain": true,
-    "url": "https://snshealthie.herokuapp.com/api/v2/reviews/"+search,
-    "method": "GET",
-    "headers": {
-      "authorization": "Token ced12082a40905503ad2ad29367aeafb824ed2b8",
-    }
-  }
-  console.log(settings.url)
-  $.ajax(settings).done(function (response) {
-
-  });
-}
-
 function lookUpAllGymClassGET() {
 
   let settings = {
@@ -53,9 +36,8 @@ function lookUpAllGymClassGET() {
   });
 }
 
-
 function renderAllGymClassSearchResults(classResults) {
-console.log(classResults);
+
   let classResultsStart = document.getElementById("placeholderClassSearchResult");
 
   for (let i = 0; i < classResults.results.length; i++) {
@@ -77,24 +59,22 @@ console.log(classResults);
     classResultsContainer.appendChild(classResultsFront);
     classResultsContainer.appendChild(classResultsBack);
 
-    classResultsFront.innerHTML = '<span class="card-title activator grey-text text-darken-4">'+ classResults.results[i].name + '<i class="material-icons right">more_vert</i></span>'
-    + '<p>' + classResults.results[i].gym + '</p>'
-    // + '<p>' + classResults.classes[i].avgRating + '</p>'
-    // + '<p>' + classResults.classes[i].gym + '</p>'
-    // + '<p>' + classResults.classes[i].location + '</p>';
+    classResultsFront.innerHTML = '<span class="card-title activator grey-text text-darken-4">Name'+ classResults.results[i].name + '<i class="material-icons right">more_vert</i></span>'
+    + '<p>Gym' + classResults.results[i].gym + '</p>'
+    + '<p>Class Type' + classResults.results[i].type + '</p>'
+    + '<p>Instructor' + classResults.results[i].instructor + '</p>';
     classResultsBack.innerHTML = '<span class="card-title grey-text text-darken-4">'+ 'More Info' + '<i class="material-icons right">close</i></span>'
-    // + '<p>' + classResults.results[i].type + '</p>'
     // + '<p>' + classResults.classes[i].description + '</p>'
     // + '<p>' + classResults.classes[i].dateOffered + '</p>'
     // + '<p>' + classResults.classes[i].instructor + '</p>'
-    // + '<p>' + classResults.classes[i].duration + '</p>';
+    + '<p>Duration' + classResults.results[i].duration_minutes + 'Min</p>';
 
     //add various functions
 
     classResultsFront.onclick = () => {
       document.getElementById("placeholderClassReviewSearchResult").innerHTML = ""
       changeGymClassReviewTitleHeader(className)
-      selectGymClass(classReviews)
+      lookUpGymClassReviewGET(classResultsContainer.id)
     }
   }
 }
@@ -105,14 +85,32 @@ function changeGymClassReviewTitleHeader(className) {
 
 
 function changeGymClassTitleHeader(categoryName) {
-    document.getElementById("classlistresults").innerHTML="Classes for " + categoryName
+    let categories = document.getElementById("classlistresults")
+    categories.innerHTML="Classes for " + categoryName
 }
 
-function selectGymClass(reviewName) {
+//Call to return all reviews associated to given class ID
+function lookUpGymClassReviewGET(search) {
+  let searchTerm = search.replace("class","")
+  let settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "https://snshealthie.herokuapp.com/api/v2/classes/"+searchTerm+"/reviews/",
+    "method": "GET",
+    "headers": {
+      "authorization": "Token ced12082a40905503ad2ad29367aeafb824ed2b8",
+    }
+  }
+  $.ajax(settings).done(function (response) {
+    renderSelectedGymClassReviews(response)
+  });
+}
+
+function renderSelectedGymClassReviews(reviewName) {
 
   let classReviewResultsStart = document.getElementById("placeholderClassReviewSearchResult");
 
-  if (reviewName.length < 1) {
+  if (reviewName.results.length < 1) {
 
     let classReviewResultsContainer = document.createElement("div")
     classReviewResultsContainer.innerHTML = "Sorry, selected class has no reviews";
@@ -120,7 +118,7 @@ function selectGymClass(reviewName) {
 
   } else {
 
-    for (let i = 0; i < reviewName.length; i++) {
+    for (let i = 0; i < reviewName.results.length; i++) {
 
       let classReviewResultsContainer = document.createElement("div");
       let classReviewResultsContent = document.createElement("div");
@@ -129,13 +127,11 @@ function selectGymClass(reviewName) {
       classReviewResultsContent.classList.add("card-content");
       classReviewResultsContent.classList.add("black-text");
 
-      classReviewResultsContent.innerHTML = "Review(s) found"
-
-      // classReviewResultsContent.innerHTML = '<span class="card-title">' + classdatajson.classes[0].reviews[i].reviewTitle + '<span style="float:right">' + classdatajson.classes[0].reviews[i].rating + '</span></span>'
+      classReviewResultsContent.innerHTML = '<span class="card-title">' + reviewName.results[i].title + '<span style="float:right">' + reviewName.results[i].rating + 'stars</span></span>'
       // + '<p>' + classdatajson.classes[0].reviews[i].user
       // + '<span style="float:right">' + classdatajson.classes[0].reviews[i].dateSubmitted + '</span></p><br>'
-      // + '<p>' + classdatajson.classes[0].reviews[i].reviewText + '</p>'
-      // + '<br><p><i class=material-icons>thumb_up</i>     <i class=material-icons>thumb_down</i></p>';
+      + '<p>' + reviewName.results[i].review + '</p>'
+      + '<br><p><i class=material-icons>thumb_up</i>     <i class=material-icons>thumb_down</i></p>';
 
       classReviewResultsStart.appendChild(classReviewResultsContainer);
       classReviewResultsContainer.appendChild(classReviewResultsContent);
@@ -159,4 +155,42 @@ function searchClassesGET(search) {
   $.ajax(settings).done(function (response) {
     console.log(response)
   });
+}
+
+function trackGymSelection() {
+
+}
+
+function trackClassSelection() {
+
+}
+
+const gymClassCategories = ["Strength", "Conditioning", "Cycling", "Yoga", "Pilates", "Aquatics", "Team Sports", "Boxing & Martial Arts", "Dance"]
+
+function createGymClassCategories(categories) {
+
+  let classCategoryStart = document.getElementById("placeholdergymclasscategorieslist")
+
+  for (let i = 0; i <= 7; i++) {
+
+    let gymClassCategory = document.createElement("div")
+    let gymClassCategoryButton = document.createElement("a")
+    let categoryName = categories[i]
+
+    gymClassCategory.classList.add("col")
+    gymClassCategory.classList.add("s1.5")
+    gymClassCategoryButton.classList.add("waves-effect")
+    gymClassCategoryButton.classList.add("waves-light")
+    gymClassCategoryButton.classList.add("btn-large")
+
+    classCategoryStart.appendChild(gymClassCategory)
+    gymClassCategory.appendChild(gymClassCategoryButton)
+
+    gymClassCategoryButton.innerHTML = "<span id=category" + i + ">" + categories[i] + "</span>"
+
+    gymClassCategoryButton.onclick = () => {
+      changeGymClassTitleHeader(categoryName)
+    }
+  }
+
 }
